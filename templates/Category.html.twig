@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Categories {%  endblock title %}
+
+{% block body  %}
+
+
+    {% for category in categories %}
+
+
+        <h2 style="color: {{ category.color }}">{{ category.title }} </h2>
+
+    {% endfor%}
+
+{% endblock body %}

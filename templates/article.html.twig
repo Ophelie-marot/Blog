@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Article {%  endblock title %}
+
+{% block body  %}
+    {# Je créée mon fichier qui contiendra mon article #}
+
+        <body class="container">
+           <main class="container-fluid">
+                <h2 class="text-center">{{ article1.title }}</h2>
+                <p>{{ article1.content }}</p>
+               <div id="Bordeaux">
+                <img  src="{{ article1.picture }}" alt="" class="img-fluid">
+               </div>
+           </main>
+        </body>
+
+{% endblock body %}
