@@ -83,18 +83,26 @@ class pageController extends AbstractController
 
     }
 
+    //Je créée une nouvelle route, un nouveau lien pour modifier mes titres
     /**
      * @Route("article/update-static/{id}", name="update_static")
      */
+
+    //Puis ma fonction avec mes focntions pour faire le lien avec ma bdd et ma wildcard 'id'
     public function updateStaticArticle(ArticleRepository $articleRepository, EntityManagerInterface $entityManager,$id)
     {
+        //Je stocke dans une caribale ma fonction pour faire le lien avec ma bdd ainsi que la ma wilcard "$id"
         $article = $articleRepository->find($id);
 
-        $article->setTitle("Bordeaux ma ville");
+        //Je modifie mon titre
+        $article->setTitle("Ma ville");
 
+        //je fais mon persite équilant de commit
         $entityManager->persist($article);
+        //et mon flush équivalant de push
         $entityManager->flush();
 
+        //Pour finir je fais appelle a ma fonction render pour retourner ma reponse en http par le bié de mon fichier twig
         return $this->render('article/update_static.html.twig');
     }
 

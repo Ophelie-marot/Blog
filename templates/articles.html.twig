@@ -12,6 +12,8 @@ le lien entre ma page twig et le name de ma fonction, un lien unique qui pourras
         <h2>
           <a href="{{ path('article_show',{id:article.id}) }}" class="ville">  {{ article.title }} </a>
         </h2>
+    {# Je créée un bouton qui feras le lien dans mon navigateur pour modifier mon titre#}
+        <button type="button" class="btn btn-outline-warning"><a href="{{ path('update_static',{id:article.id}) }}">Modifier le titre </a></button>
         <img src="{{ article.picture }}" alt="" class="img-fluid">
 
 
