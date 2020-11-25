@@ -6,8 +6,20 @@
 
 header{
     justify-content: space-between;
+    margin-bottom: 50px;
+
 }
+
+a{
+    transition:all 0.5s ease;
+    color: #B0413E;
+}
+
 #logo{
+    position: sticky;
+    top:0;
+    width: 100%;
+    z-index: 3000;
 
 }
 ul{
@@ -23,6 +35,9 @@ ul li{
 
 .ville{
     margin-left: 500px;
+    font-family: Impact;
 }
-
+footer{
+    margin-top: 50px;
+}
 

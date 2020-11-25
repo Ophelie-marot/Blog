@@ -106,4 +106,20 @@ class pageController extends AbstractController
         return $this->render('article/update_static.html.twig');
     }
 
+    /**
+     * @Route("/article/delete/{id}", name="article_delete")
+     */
+    public function deleteArticle($id,ArticleRepository $articleRepository, EntityManagerInterface $entityManager)
+    {
+        $article = $articleRepository->find($id);
+
+        if(!is_null($article)){
+            $entityManager->remove($article);
+            $entityManager->flush();
+        }
+
+        return $this->render('article/delete_article.html.twig');
+
+    }
+
 }
