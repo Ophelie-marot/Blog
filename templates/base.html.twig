@@ -7,10 +7,25 @@
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link rel="stylesheet" href="asset/style.css">
     </head>
-    <body>
-        <header>{% block header %}{% endblock %}</header>
+    <body class="container">
+        <header class="row">
+            <div class="col-2">
+            <img id="logo" src="asset/ophelie.png" alt="logo" class="img-fluid">
+            </div>
+            <ul>
+                <li class="col-5">Mes Villes</li>
+                <li class="col-5">Articles</li>
+                <li class="col-5">Galerie</li>
+            </ul>
+
+            {% block header %}{% endblock %}</header>
+
         <main>{% block body %}{% endblock %}</main>
-        <footer>{% block footer %}{% endblock %}</footer>
+
+        <footer>
+            <img class="offset-5" src="asset/ophelie.png" alt="logo" class="img-fluid">
+            {% block footer %}{% endblock %}
+        </footer>
 
     </body>
 </html>
