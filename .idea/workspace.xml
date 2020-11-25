@@ -144,7 +144,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606143338104</updated>
-      <workItem from="1606143339335" duration="20711000" />
+      <workItem from="1606143339335" duration="23919000" />
     </task>
     <servers />
   </component>
@@ -164,9 +164,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1606225294187" />
-    <state x="478" y="183" key="NewPhpClassDialog" timestamp="1606223579064">
+    <state x="478" y="183" key="NewPhpClassDialog" timestamp="1606309742343">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="478" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1606223579064" />
+    <state x="478" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1606309742343" />
   </component>
 </project>

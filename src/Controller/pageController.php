@@ -19,25 +19,11 @@ class pageController extends AbstractController
         //Je récupère tout mes articles grâce a la wildcard findALL qui me permet des SELECT en BDD
         $articles = $articleRepository->findAll();
 
-        return $this->render("articles.html.twig",[
-            'articles'=>$articles
-            ]);
-
-    }
-    /**
-     * @Route("/category", name="category_page")
-     */
-    public function categoryList(CategoryRepository $catergoryRepository)
-    {
-
-        $categories = $catergoryRepository->findAll();
-
-        return $this->render("Category.html.twig",[
-
-            'categories'=>$categories
+        return $this->render("articles.html.twig", [
+            'articles' => $articles
         ]);
-    }
 
+    }
 
     //Je créée ma route/ mon lien
     /**
@@ -81,7 +67,7 @@ class pageController extends AbstractController
     les décennies 1850 et 1860 à travers d'importants travaux consistant notamment au percement de larges avenues,
     places et jardins et la construction de nombreux édifices, dirigés par le baron Haussmann, donnant à l'ancien Paris
     médiéval le visage qu'on lui connait aujourd'hui.");
-        $article->setPicture("https://commons.wikimedia.org/wiki/Paris#/media/File:Paris_Night.jpg");
+        $article->setPicture("https://upload.wikimedia.org/wikipedia/commons/c/c6/Tour_eiffel_paris-eiffel_tower.jpg");
         $article->setDate(new \DateTime());
         $article->setPublish(true);
 
@@ -95,8 +81,21 @@ class pageController extends AbstractController
         //de mon fichier twig
         return $this->render('article/insert_static.html.twig');
 
-
     }
 
+    /**
+     * @Route("article/update-static/{id}", name="update_static")
+     */
+    public function updateStaticArticle(ArticleRepository $articleRepository, EntityManagerInterface $entityManager,$id)
+    {
+        $article = $articleRepository->find($id);
+
+        $article->setTitle("Bordeaux ma ville");
+
+        $entityManager->persist($article);
+        $entityManager->flush();
+
+        return $this->render('article/update_static.html.twig');
+    }
 
 }
