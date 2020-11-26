@@ -9,7 +9,7 @@ use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-class PagesController extends AbstractController
+class PageController extends AbstractController
 {
     /**
      * @Route("/articles", name="articles_list")
@@ -108,13 +108,16 @@ class PagesController extends AbstractController
     /**
      * @Route("/article/insert", name="article_insert")
      */
-
+    //Je créée ma méthode pour mon formulaire, fait a préalable avec ma ligne de commande
     public function insertArticle()
     {
+        // puis je stocke dans une variable l'appel a mon formulaire déja créée
         $form = $this->createForm(ArticleType::class);
 
+        //dans une variable je transforme mon form brut php a l'aide de mon creatView un formulaire lisible par mon html.twig
         $formView = $form->createView();
 
+        //Pour finir je retourne ma reponse http en html par mon html.twig
         return $this->render('article/insert.html.twig',[
 
             'formView' => $formView
