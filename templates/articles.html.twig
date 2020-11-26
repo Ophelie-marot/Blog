@@ -8,18 +8,24 @@
 {# Je fait ma boucle for pour selectionner mes articles a afficher sur mon navigateur, puis la focntion path qui vat faire
 le lien entre ma page twig et le name de ma fonction, un lien unique qui pourras etre utilisé par n'importe qui #}
     {% for article in articles %}
-
+    <body>
         <hr>
+        {% for message in app.flashes('success')  %}
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Féliciation</h4>
+                <p>{{ message }}</p>
+            </div>
+        {% endfor%}
         <h2>
           <a href="{{ path('article_show',{id:article.id}) }}" class="ville">  {{ article.title }} </a>
         </h2>
-    {# Je créée un bouton qui feras le lien dans mon navigateur pour modifier mon titre#}
+        {# Je créée un bouton qui feras le lien dans mon navigateur pour modifier mon titre#}
         <div class="row d-flex justify-content-between">
             <button type="button" class="btn btn-outline-warning"><a href="{{ path('update_static',{id:article.id}) }}">Modifier le titre </a></button>
             <button type="button" class="btn btn-outline-danger"><a href="{{ path('article_delete',{id:article.id}) }}">Supprimer l'article</a></button>
             <img src="{{ article.picture }}" alt="" class="img-fluid"> <br> <br>
         </div>
-
+    </body>
     {% endfor %}
 
 {% endblock body %}

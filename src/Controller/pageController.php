@@ -4,12 +4,11 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Repository\CategoryRepository;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-class pageController extends AbstractController
+class PageController extends AbstractController
 {
     /**
      * @Route("/articles", name="articles_list")
@@ -109,16 +108,27 @@ class pageController extends AbstractController
     /**
      * @Route("/article/delete/{id}", name="article_delete")
      */
+    //Je créée unne nouvelle methode pour supprimer un article avec ma wildCard, et j'instencie dans une viariable mes fonctions
     public function deleteArticle($id,ArticleRepository $articleRepository, EntityManagerInterface $entityManager)
     {
+        //je stocke dans une variable mon appel a mes "id" dans ma bdd
         $article = $articleRepository->find($id);
 
+        //Puis je fais une boucle for pour demander à ne supprimer mon article iniquement dans le cas où il n'est pas égale a null
         if(!is_null($article)){
             $entityManager->remove($article);
             $entityManager->flush();
+
+        //et je fais appelle a ma fonction symfony add flash un pop up de succes
+            $this->addFlash(
+                "success",
+                "Ton article à bien été supprimé
+                        Bien ouèj !!"
+            );
         }
 
-        return $this->render('article/delete_article.html.twig');
+        //Enfin je retourne ma reponse vers mon navigateur frâce a ma route articles_list
+        return $this->redirectToRoute("articles_list");
 
     }
 
