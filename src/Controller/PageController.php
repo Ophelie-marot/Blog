@@ -7,6 +7,7 @@ use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 class PageController extends AbstractController
@@ -109,10 +110,23 @@ class PageController extends AbstractController
      * @Route("/article/insert", name="article_insert")
      */
     //Je créée ma méthode pour mon formulaire, fait a préalable avec ma ligne de commande
-    public function insertArticle()
+    public function insertArticle(Request $request, EntityManagerInterface $entityManager)
     {
+        //Dans ma variable j'utilise le 'new Article' pour pouvoir modifier/manipuler ma table en bdd
+        $article = new Article();
+
         // puis je stocke dans une variable l'appel a mon formulaire déja créée
-        $form = $this->createForm(ArticleType::class);
+        $form = $this->createForm(ArticleType::class, $article);
+
+        //Je lie mon formulaire à ma requête POST
+        $form->handleRequest($request);
+
+        //Et je fais ma condition, qui me permet d'envoyer mon formulaire & la condition que tous mes champs soient valid
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $entityManager->persist($article);
+            $entityManager->flush();
+        }
 
         //dans une variable je transforme mon form brut php a l'aide de mon creatView un formulaire lisible par mon html.twig
         $formView = $form->createView();
