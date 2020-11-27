@@ -4,15 +4,49 @@
 
 {% block body  %}
 
-    <body>
+
     <main>
         <h2>
             Créer un article :
         </h2>
 
-        {{ form(formView) }}
+    <div clas="container-fluid">
+        {{ form_start(formView) }}
+
+        <div class="row d-flex justify-content-center">
+            {{ form_label(formView.title) }}
+            {{ form_widget(formView.title) }}
+        </div><br>
+
+        <div class="row d-flex justify-content-center">
+            {{ form_label(formView.content) }}
+            {{ form_widget(formView.content) }}
+        </div><br>
+
+        <div class="row d-flex justify-content-center">
+            {{ form_label(formView.picture) }}
+            {{ form_widget(formView.picture) }}
+        </div><br>
+
+        <div class="row d-flex justify-content-center">
+            {{ form_label(formView.date) }}
+            {{ form_widget(formView.date) }}
+        </div><br>
+
+        <div class="row d-flex justify-content-center">
+            {{ form_label(formView.publish) }}
+            {{ form_widget(formView.publish) }}
+        </div><br>
+
+        <div class="row d-flex justify-content-center">
+            {{ form_label(formView.Valider) }}
+            {{ form_widget(formView.Valider) }}
+        </div>
+
+        {{ form_end(formView) }}
+    </div>
     </main>
 
-    </body>
+
 
 {% endblock body %}

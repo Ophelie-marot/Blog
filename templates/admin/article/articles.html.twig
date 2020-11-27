@@ -17,9 +17,6 @@ le lien entre ma page twig et le name de ma fonction, un lien unique qui pourras
             </div>
         {% endfor%}
 
-
-
-
     {% for article in articles %}
         <h2>
             <h1 class="ville"> {{ article.title }}</h1>
@@ -29,6 +26,8 @@ le lien entre ma page twig et le name de ma fonction, un lien unique qui pourras
             <button type="button" class="btn btn-outline-warning"><a href="{{ path('admin_article_insert',{id:article.id}) }}">Créer un article</a></button>
             <button type="button" class="btn btn-outline-warning"><a href="{{ path('admin_article_update',{id:article.id}) }}">Modifier l'article </a></button>
             <button type="button" class="btn btn-outline-danger"><a href="{{ path('admin_article_delete',{id:article.id}) }}">Supprimer l'article</a></button>
+        </div><br>
+        <div class="row">
             <img src="{{ article.picture }}" alt="" class="img-fluid"> <br> <br>
         </div>
     </body>
