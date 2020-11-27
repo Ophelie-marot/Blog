@@ -20,11 +20,13 @@ a{
 ul{
     display: flex;
     list-style-type: none;
+    margin-right: 100px;
 
 }
 ul li{
     margin-top: 30px;
     font-family: Georgia;
+    color: white;
 
 }
 
@@ -37,7 +39,29 @@ footer{
     margin-top: 50px;
     background-color: darkcyan;
 }
+.title{
+    margin-left:15px ;
 
+}
+.content{
+    margin-left:15px ;
 
+}
+.picture{
+    margin-left:15px ;
+
+}
+.date{
+    margin-left:15px ;
+    color: darkcyan;
+}
+
+.publish{
+    margin-left:15px ;
+
+}
+.valider{
+    color: darkcyan;
+}
 
 

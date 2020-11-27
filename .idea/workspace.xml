@@ -148,7 +148,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606143338104</updated>
-      <workItem from="1606143339335" duration="49030000" />
+      <workItem from="1606143339335" duration="51349000" />
     </task>
     <servers />
   </component>
@@ -174,5 +174,13 @@
     </state>
     <state x="478" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1606309742343" />
     <state x="478" y="201" key="NewPhpClassDialog/0.23.1440.877@0.23.1440.877" timestamp="1606465584673" />
+    <state x="427" y="216" width="586" height="490" key="find.popup" timestamp="1606489071227">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="427" y="216" width="586" height="490" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1606489071227" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1606490568749">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1606490568749" />
   </component>
 </project>
