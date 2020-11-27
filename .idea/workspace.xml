@@ -123,16 +123,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/front" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/front" />
+      <recent name="$PROJECT_DIR$/templates/admin/article" />
+      <recent name="$PROJECT_DIR$/templates/Admin/article" />
+      <recent name="$PROJECT_DIR$/templates/Admin" />
       <recent name="$PROJECT_DIR$/public/asset" />
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/src/Entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/front" />
+      <recent name="$PROJECT_DIR$/templates/Admin/article" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -144,7 +148,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606143338104</updated>
-      <workItem from="1606143339335" duration="36864000" />
+      <workItem from="1606143339335" duration="43162000" />
     </task>
     <servers />
   </component>
@@ -160,13 +164,15 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="331" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1606393703838" />
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606225294187">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="458" y="230" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606466138394">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1606225294187" />
-    <state x="478" y="183" key="NewPhpClassDialog" timestamp="1606309742343">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="458" y="230" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877@0.23.1440.877" timestamp="1606466138394" />
+    <state x="478" y="201" key="NewPhpClassDialog" timestamp="1606465584673">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="478" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1606309742343" />
+    <state x="478" y="201" key="NewPhpClassDialog/0.23.1440.877@0.23.1440.877" timestamp="1606465584673" />
   </component>
 </project>

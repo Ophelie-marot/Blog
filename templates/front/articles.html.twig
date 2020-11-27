@@ -1,0 +1,22 @@
+
+{% extends 'front/bas.html.twig' %}
+
+{% block title %} Articles {%  endblock title %}
+
+{% block body  %}
+
+{# Je fait ma boucle for pour selectionner mes articles a afficher sur mon navigateur, puis la focntion path qui vat faire
+le lien entre ma page twig et le name de ma fonction, un lien unique qui pourras etre utilisé par n'importe qui #}
+    {% for article in articles %}
+    <body>
+        <hr>
+        <h2>
+          <a href="{{ path('article_show',{id:article.id}) }}" class="ville">  {{ article.title }} </a></h2>
+
+        <div class="row d-flex justify-content-between">
+            <img src="{{ article.picture }}" alt="" class="img-fluid"> <br> <br>
+        </div>
+    </body>
+    {% endfor %}
+
+{% endblock body %}

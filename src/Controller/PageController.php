@@ -20,7 +20,7 @@ class PageController extends AbstractController
         //Je récupère tout mes articles grâce a la wildcard findALL qui me permet des SELECT en BDD
         $articles = $articleRepository->findAll();
 
-        return $this->render("articles.html.twig", [
+        return $this->render("front/articles.html.twig", [
             'articles' => $articles
         ]);
 
@@ -38,7 +38,7 @@ class PageController extends AbstractController
     {
         $article1 =$articleRepository->find($id);
 
-        return $this->render("article.html.twig",[
+        return $this->render("front/article.html.twig",[
 
         //Puis je ctéée ma viariable, pour l'utiliser dans  mon fichier twig
             'article1'=>$article1
@@ -106,64 +106,5 @@ class PageController extends AbstractController
         //Pour finir je fais appelle a ma fonction render pour retourner ma reponse en http par le bié de mon fichier twig
         //return $this->render('article/update_static.html.twig');
     //}
-    /**
-     * @Route("/article/insert", name="article_insert")
-     */
-    //Je créée ma méthode pour mon formulaire, fait a préalable avec ma ligne de commande
-    public function insertArticle(Request $request, EntityManagerInterface $entityManager)
-    {
-        //Dans ma variable j'utilise le 'new Article' pour pouvoir modifier/manipuler ma table en bdd
-        $article = new Article();
-
-        // puis je stocke dans une variable l'appel a mon formulaire déja créée
-        $form = $this->createForm(ArticleType::class, $article);
-
-        //Je lie mon formulaire à ma requête POST
-        $form->handleRequest($request);
-
-        //Et je fais ma condition, qui me permet d'envoyer mon formulaire & la condition que tous mes champs soient valid
-        if ($form->isSubmitted() && $form->isValid()){
-
-            $entityManager->persist($article);
-            $entityManager->flush();
-        }
-
-        //dans une variable je transforme mon form brut php a l'aide de mon creatView un formulaire lisible par mon html.twig
-        $formView = $form->createView();
-
-        //Pour finir je retourne ma reponse http en html par mon html.twig
-        return $this->render('article/insert.html.twig',[
-
-            'formView' => $formView
-            ]);
-    }
-
-    /**
-     * @Route("/article/delete/{id}", name="article_delete")
-     */
-     //Je créée unne nouvelle methode pour supprimer un article avec ma wildCard, et j'instencie dans une viariable mes fonctions
-    public function deleteArticle($id,ArticleRepository $articleRepository, EntityManagerInterface $entityManager)
-    {
-        //je stocke dans une variable mon appel a mes "id" dans ma bdd
-        $article = $articleRepository->find($id);
-
-        //Puis je fais une boucle for pour demander à ne supprimer mon article iniquement dans le cas où il n'est pas égale a null
-        if(!is_null($article)){
-            $entityManager->remove($article);
-            $entityManager->flush();
-
-        //et je fais appelle a ma fonction symfony add flash un pop up de succes
-            $this->addFlash(
-                "success",
-                "Ton article à bien été supprimé
-                        //Bien ouèj !!"
-            );
-        }
-
-        //Enfin je retourne ma reponse vers mon navigateur frâce a ma route articles_list
-        return $this->redirectToRoute("articles_list");
-
-    }
-
 
 }

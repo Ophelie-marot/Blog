@@ -1,5 +1,5 @@
 
-{% extends 'base.html.twig' %}
+{% extends 'admin/article/base.html.twig' %}
 
 {% block title %} Articles {%  endblock title %}
 
@@ -7,7 +7,7 @@
 
 {# Je fait ma boucle for pour selectionner mes articles a afficher sur mon navigateur, puis la focntion path qui vat faire
 le lien entre ma page twig et le name de ma fonction, un lien unique qui pourras etre utilisé par n'importe qui #}
-    {% for article in articles %}
+
     <body>
         <hr>
         {% for message in app.flashes('success')  %}
@@ -16,13 +16,19 @@ le lien entre ma page twig et le name de ma fonction, un lien unique qui pourras
                 <p>{{ message }}</p>
             </div>
         {% endfor%}
+
+
+
+
+    {% for article in articles %}
         <h2>
-          <a href="{{ path('article_show',{id:article.id}) }}" class="ville">  {{ article.title }} </a>
+            <h1 class="ville"> {{ article.title }}</h1>
         </h2>
-        {# Je créée un bouton qui feras le lien dans mon navigateur pour modifier mon titre#}
+
         <div class="row d-flex justify-content-between">
-            <button type="button" class="btn btn-outline-warning"><a href="{{ path('update_static',{id:article.id}) }}">Modifier le titre </a></button>
-            <button type="button" class="btn btn-outline-danger"><a href="{{ path('article_delete',{id:article.id}) }}">Supprimer l'article</a></button>
+            <button type="button" class="btn btn-outline-warning"><a href="{{ path('admin_article_insert',{id:article.id}) }}">Créer un article</a></button>
+            <button type="button" class="btn btn-outline-warning"><a href="{{ path('admin_article_update',{id:article.id}) }}">Modifier l'article </a></button>
+            <button type="button" class="btn btn-outline-danger"><a href="{{ path('admin_article_delete',{id:article.id}) }}">Supprimer l'article</a></button>
             <img src="{{ article.picture }}" alt="" class="img-fluid"> <br> <br>
         </div>
     </body>
