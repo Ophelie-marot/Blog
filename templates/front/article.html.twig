@@ -8,10 +8,11 @@
         <body class="container">
            <main class="container-fluid">
                <hr>
-                <h2 class="ville">{{ article1.title }}</h2>
-                <p>{{ article1.content }}</p>
+                <h2 class="ville">{{ article.title }} {{ article.category.title }}</h2>
+
+                <p>{{ article.content }}</p>
                <div id="Bordeaux">
-                <img  src="{{ article1.picture }}" alt="" class="img-fluid">
+                <img  src="{{ article.picture }}" alt="" class="img-fluid">
                </div>
            </main>
         </body>

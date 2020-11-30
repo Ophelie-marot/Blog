@@ -4,6 +4,8 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,6 +44,24 @@ class Category
      * @ORM\Column(type="boolean")
      */
     private $publish;
+
+    /**
+     * Ma propriétée articles est l'inverse de mon ManytoOne, donc c'est un OneToMany, c'est lui qui cible ma table
+     * Article. Le mappedBy est ma propriété, celle cette fois de ma table Article qui repointe vers ma category.
+     * Ce sont mes liens entre les deux entités
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="category")
+     */
+    private $articles;
+
+    //Dans cette methode construct ce trouve un tableau/Array, qui permet de ne pas tout casser.
+    //En gros ca fonction est que : si je rajoute un article par le bié de ma category, symfo va savpir qui faut
+    //automtiquement me créer un nouvel id dans ma table article, sans remplacer/écraser un autre.
+    //ce sont des get et des set et des add un peux particulier, spécifique a ce fontionnement.
+    //Il permet d'automatiser le bon fonctionnement de mon lien (ma foreignkey) entre mes deux entités !
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -129,6 +149,36 @@ class Category
     public function setPublish($publish): void
     {
         $this->publish = $publish;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getCategory() === $this) {
+                $article->setCategory(null);
+            }
+        }
+
+        return $this;
     }
 
 

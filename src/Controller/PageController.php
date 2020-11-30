@@ -36,12 +36,12 @@ class PageController extends AbstractController
     //et render pour faire le lien avec mon fichier twig
     public function articleShow($id, ArticleRepository $articleRepository)
     {
-        $article1 =$articleRepository->find($id);
+        $article =$articleRepository->find($id);
 
         return $this->render("front/article.html.twig",[
 
         //Puis je ctéée ma viariable, pour l'utiliser dans  mon fichier twig
-            'article1'=>$article1
+            'article'=>$article
         ]);
     }
 
