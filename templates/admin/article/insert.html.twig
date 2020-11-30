@@ -16,26 +16,31 @@
         <div class="row d-flex justify-content-center">
             <h3> {{ form_label(formView.title) }}</h3>
             {{ form_widget(formView.title,{'attr': {'class': 'title'}}) }}
+            {{ form_errors(formView.title) }}
         </div><br>
 
         <div class="row d-flex justify-content-center">
             <h3> {{ form_label(formView.content) }}</h3>
             {{ form_widget(formView.content,{'attr':{'class': 'content'}}) }}
+            {{ form_errors(formView.content) }}
         </div><br>
 
         <div class="row d-flex justify-content-center">
             <h3>  {{ form_label(formView.picture) }}</h3>
             {{ form_widget(formView.picture,{'attr':{'class': 'picture'}}) }}
+            {{ form_errors(formView.picture) }}
         </div><br>
 
         <div class="row d-flex justify-content-center">
             <h3> {{ form_label(formView.date,) }}</h3>
             {{ form_widget(formView.date,{'attr':{'class': 'date'}}) }}
+            {{ form_errors(formView.date) }}
         </div><br>
 
         <div class="row d-flex justify-content-center">
            <h3>{{ form_label(formView.publish) }}</h3>
             {{ form_widget(formView.publish,{'attr':{'class': 'publish'}}) }}
+            {{ form_errors(formView.publish) }}
         </div><br>
 
         <div class="row d-flex justify-content-center">
