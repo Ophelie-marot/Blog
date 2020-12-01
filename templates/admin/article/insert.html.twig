@@ -31,17 +31,14 @@
             {{ form_errors(formView.picture) }}
         </div><br>
 
+
         <div class="row d-flex justify-content-center">
-            <h3> {{ form_label(formView.date,) }}</h3>
+            <h3> {{ form_label(formView.date) }}</h3>
             {{ form_widget(formView.date,{'attr':{'class': 'date'}}) }}
             {{ form_errors(formView.date) }}
         </div><br>
 
-        <div class="row d-flex justify-content-center">
-           <h3>{{ form_label(formView.publish) }}</h3>
-            {{ form_widget(formView.publish,{'attr':{'class': 'publish'}}) }}
-            {{ form_errors(formView.publish) }}
-        </div><br>
+
 
         <div class="row d-flex justify-content-center">
             {{ form_label(formView.Valider) }}

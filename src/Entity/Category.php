@@ -3,13 +3,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @ORM\Entity(repositoryClass=CategoryRepository::class)
  */
 class Category
 {
@@ -47,14 +47,14 @@ class Category
 
     /**
      * Ma propriétée articles est l'inverse de mon ManytoOne, donc c'est un OneToMany, c'est lui qui cible ma table
-     * Article. Le mappedBy est ma propriété, celle cette fois de ma table Article qui repointe vers ma category.
+     * Article. Le mappedBy est ma propriété, celle cette fois de ma table Article qui repointe vers ma categoryController.
      * Ce sont mes liens entre les deux entités
      * @ORM\OneToMany(targetEntity=Article::class, mappedBy="category")
      */
     private $articles;
 
     //Dans cette methode construct ce trouve un tableau/Array, qui permet de ne pas tout casser.
-    //En gros ca fonction est que : si je rajoute un article par le bié de ma category, symfo va savpir qui faut
+    //En gros ca fonction est que : si je rajoute un article par le bié de ma categoryController, symfo va savpir qui faut
     //automtiquement me créer un nouvel id dans ma table article, sans remplacer/écraser un autre.
     //ce sont des get et des set et des add un peux particulier, spécifique a ce fontionnement.
     //Il permet d'automatiser le bon fonctionnement de mon lien (ma foreignkey) entre mes deux entités !
